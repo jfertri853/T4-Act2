@@ -2,13 +2,7 @@ package org.example
 
 class Person(weight: Double, height: Double) {
 
-    init {
-        verifyWeight(weight)
-        verifyHeight(height)
-    }
-
-
-    var weight = weight
+    var weight = verifyWeight(weight)
         set(value) {
             field = verifyWeight(value)
         }
