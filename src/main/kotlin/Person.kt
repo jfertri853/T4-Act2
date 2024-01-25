@@ -71,12 +71,12 @@ class Person(weight: Double, height: Double) {
         return areEquals
     }
 
-    // Esto me lo genera solo el IDE y no tengo ni idea de lo que hace, ayuda
+    // Modificado para no generar hashCode de la propiedad bmi,
+    // no es necesario porque si weight y height son iguales generan siempre el mismo bmi
     override fun hashCode(): Int {
         var result = weight.hashCode()
         result = 31 * result + height.hashCode()
         result = 31 * result + (name?.hashCode() ?: 0)
-        result = 31 * result + bmi.hashCode()
         return result
     }
 
