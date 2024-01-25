@@ -60,7 +60,15 @@ class Person(weight: Double, height: Double) {
     }
 
     override fun equals(other: Any?): Boolean {
-        return (this === other)
+        var areEquals = true
+
+        if (other is Person) {
+            if (this.name != other.name) {areEquals = false}
+            else if (this.weight != other.weight) {areEquals = false}
+            else if (this.height != other.height) {areEquals = false}
+        }
+
+        return areEquals
     }
 
     // Esto me lo genera solo el IDE y no tengo ni idea de lo que hace, ayuda
