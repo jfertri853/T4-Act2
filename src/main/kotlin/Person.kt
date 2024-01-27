@@ -7,6 +7,13 @@ class Person(weight: Double, height: Double) {
             field = verifyWeight(value)
         }
 
+    /** Recibe el peso y en caso de que sea menor o igual a 0 devuelve 1.0,
+     *  en caso contrario devuelve el mismo peso
+     *
+     * @param weight El peso de la persona
+     *
+     * @return El peso (nunca será menor o igual a 0)
+     */
     private fun verifyWeight(weight: Double): Double {
         return if (weight <= 0) {
             1.0
@@ -21,6 +28,13 @@ class Person(weight: Double, height: Double) {
             field = verifyHeight(value)
         }
 
+    /** Recibe la altura y en caso de que sea menor o igual a 0 devuelve 1.0,
+     *  en caso contrario devuelve la misma altura
+     *
+     * @param height La altura de la persona
+     *
+     * @return La altura (nunca será menor o igual a 0)
+     */
     private fun verifyHeight(height: Double): Double {
         return if (height <= 0) {
             1.0
@@ -35,8 +49,15 @@ class Person(weight: Double, height: Double) {
             field = verifyName(value)
         }
 
+    /** Recibe el nombre y si recibe una cadena vacía devuelve "Sin nombre",
+     * en caso de recibir una cadena con caracteres devuelve esta cadena.
+     *
+     * @param name El nombre de la persona
+     *
+     * @return El nombre (Nunca será una cadena vacía)
+     */
     private fun verifyName(name: String?): String {
-        return if (name!!.isBlank()) {
+        return if (name!!.isBlank()) { //En el main me aseguro de que nunca pueda recibir algo que no sea String
             "Sin nombre"
         } else {
             name
@@ -47,6 +68,13 @@ class Person(weight: Double, height: Double) {
     val bmi: Double
         get() = calculateBMI(this.weight, this.height)
 
+    /** Calcula el Indice de Masa Corporal
+     *
+     * @param weight El peso de la persona
+     * @param height La altura de la persona
+     *
+     * @return IMC
+     */
     private fun calculateBMI(weight: Double, height: Double): Double {
         return weight / (height * height)
     }
